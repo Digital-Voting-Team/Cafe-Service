@@ -1,4 +1,4 @@
-package adresses
+package address
 
 import (
 	"Cafe-Service/utils"

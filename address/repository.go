@@ -1,4 +1,4 @@
-package adresses
+package address
 
 import (
 	"github.com/jmoiron/sqlx"
