@@ -37,6 +37,8 @@ var (
 
 	queryDelete = `DELETE FROM public.addresses
 	WHERE id=$1;`
+
+	queryCleanDb = `DELETE FROM public.addresses;`
 )
 
 type Repository struct {
@@ -96,5 +98,10 @@ func (repo *Repository) Delete(id int) error {
 
 func (repo *Repository) Update(id int, addr *Address) error {
 	_, err := repo.db.Queryx(queryUpdate, id, addr.Building, addr.Street, addr.City, addr.District, addr.Region, addr.PostalCode)
+	return err
+}
+
+func (repo *Repository) Clean() error {
+	_, err := repo.db.Exec(queryCleanDb)
 	return err
 }

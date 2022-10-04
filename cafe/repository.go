@@ -38,6 +38,8 @@ var (
 
 	queryDelete = `DELETE FROM public.cafe
 	WHERE id=$1;`
+
+	queryCleanDb = `DELETE FROM public.cafe;`
 )
 
 type Repository struct {
@@ -97,5 +99,10 @@ func (repo *Repository) Delete(id int) error {
 
 func (repo *Repository) Update(id int, cafe *Cafe) error {
 	_, err := repo.db.Queryx(queryUpdate, id, cafe.CafeName, cafe.AddressId, cafe.Rating)
+	return err
+}
+
+func (repo *Repository) Clean() error {
+	_, err := repo.db.Exec(queryCleanDb)
 	return err
 }
