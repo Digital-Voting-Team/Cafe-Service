@@ -33,7 +33,7 @@ var (
 	querySelect = `SELECT * FROM public.cafe;`
 
 	queryUpdate = `UPDATE public.cafe
-	SET id=$2, cafe_name=$3, address=$4, rating=$5
+	SET cafe_name=$2, address=$3, rating=$4
 	WHERE id=$1;`
 
 	queryDelete = `DELETE FROM public.cafe

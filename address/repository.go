@@ -32,7 +32,7 @@ var (
 	querySelect = `SELECT * FROM public.addresses;`
 
 	queryUpdate = `UPDATE public.addresses
-	SET id=$2, building=$3, street=$4, city=$5, district=$6, region=$7, postal_code=$8
+	SET building=$2, street=$3, city=$4, district=$5, region=$6, postal_code=$7
 	WHERE id=$1;`
 
 	queryDelete = `DELETE FROM public.addresses
