@@ -80,7 +80,7 @@ func (repo *Repository) Select() ([]Address, error) {
 	}
 
 	addr := Address{}
-	addressArray := []Address{}
+	var addressArray []Address
 	for rows.Next() {
 		err = rows.StructScan(&addr)
 		if err != nil {

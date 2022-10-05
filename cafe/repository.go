@@ -81,7 +81,7 @@ func (repo *Repository) Select() ([]Cafe, error) {
 	}
 
 	cafe := Cafe{}
-	cafeArray := []Cafe{}
+	var cafeArray []Cafe
 	for rows.Next() {
 		err = rows.StructScan(&cafe)
 		if err != nil {
