@@ -23,4 +23,6 @@ func main() {
 
 	AddressesSimulation(db)
 	CafeSimulation(db)
+
+	Clean(db)
 }

@@ -39,5 +39,12 @@ func CafeSimulation(db *sqlx.DB) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Printf("\naddresses: %+v", cafeArr)
+	log.Printf("\ncafes: %+v", cafeArr)
+}
+
+func Clean(db *sqlx.DB) {
+	cafe.NewRepository(db).Clean()
+	cafe.NewRepository(db).ResetCounter()
+	address.NewRepository(db).Clean()
+	address.NewRepository(db).ResetCounter()
 }

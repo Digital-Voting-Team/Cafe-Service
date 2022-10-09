@@ -28,7 +28,7 @@ var (
 
 	queryInsert = `INSERT INTO public.cafe(
 	cafe_name, address, rating)
-	VALUES ($1, $2, $3);`
+	VALUES ($1, $2, $3) RETURNING id;`
 
 	querySelect = `SELECT * FROM public.cafe;`
 
@@ -40,6 +40,8 @@ var (
 	WHERE id=$1;`
 
 	queryCleanDb = `DELETE FROM public.cafe;`
+
+	queryResetCounter = `alter sequence cafe_id_seq restart with 1`
 )
 
 type Repository struct {
@@ -104,5 +106,10 @@ func (repo *Repository) Update(id int, cafe *Cafe) error {
 
 func (repo *Repository) Clean() error {
 	_, err := repo.db.Exec(queryCleanDb)
+	return err
+}
+
+func (repo *Repository) ResetCounter() error {
+	_, err := repo.db.Exec(queryResetCounter)
 	return err
 }

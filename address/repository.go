@@ -39,6 +39,8 @@ var (
 	WHERE id=$1;`
 
 	queryCleanDb = `DELETE FROM public.addresses;`
+
+	queryResetCounter = `alter sequence addresses_id_seq restart with 1`
 )
 
 type Repository struct {
@@ -59,7 +61,7 @@ func (repo *Repository) Insert(addr *Address) (int, error) {
 
 	rows.Next()
 	err = rows.Scan(&id)
-	return id, nil
+	return id, err
 }
 
 func (repo *Repository) CreateTable() error {
@@ -103,5 +105,10 @@ func (repo *Repository) Update(id int, addr *Address) error {
 
 func (repo *Repository) Clean() error {
 	_, err := repo.db.Exec(queryCleanDb)
+	return err
+}
+
+func (repo *Repository) ResetCounter() error {
+	_, err := repo.db.Exec(queryResetCounter)
 	return err
 }
