@@ -17,7 +17,7 @@ func DeleteAddress(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	address, err := helpers.AddressesQ(r).FilterByID(request.AddressID).Get()
+	address, err := helpers.AddressesQ(r).FilterById(request.AddressID).Get()
 	if address == nil {
 		ape.Render(w, problems.NotFound())
 		return

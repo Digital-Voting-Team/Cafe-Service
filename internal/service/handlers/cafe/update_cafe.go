@@ -21,7 +21,7 @@ func UpdateCafe(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	cafe, err := helpers.CafesQ(r).FilterByID(request.CafeID).Get()
+	cafe, err := helpers.CafesQ(r).FilterById(request.CafeID).Get()
 	if cafe == nil {
 		ape.Render(w, problems.NotFound())
 		return
@@ -33,7 +33,7 @@ func UpdateCafe(w http.ResponseWriter, r *http.Request) {
 		AddressId: cast.ToInt64(request.Data.Relationships.Address.Data.ID),
 	}
 
-	relateAddress, err := helpers.AddressesQ(r).FilterByID(newCafe.AddressId).Get()
+	relateAddress, err := helpers.AddressesQ(r).FilterById(newCafe.AddressId).Get()
 	if err != nil {
 		helpers.Log(r).WithError(err).Error("failed to get new address")
 		ape.RenderErr(w, problems.NotFound())
@@ -41,7 +41,7 @@ func UpdateCafe(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var resultCafe data.Cafe
-	resultCafe, err = helpers.CafesQ(r).FilterByID(cafe.Id).Update(newCafe)
+	resultCafe, err = helpers.CafesQ(r).FilterById(cafe.Id).Update(newCafe)
 	if err != nil {
 		helpers.Log(r).WithError(err).Error("failed to update cafe")
 		ape.RenderErr(w, problems.InternalError())

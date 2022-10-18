@@ -18,7 +18,7 @@ type CafesQ interface {
 
 	Page(pageParams pgdb.OffsetPageParams) CafesQ
 
-	FilterByID(ids ...int64) CafesQ
+	FilterById(ids ...int64) CafesQ
 	FilterByNames(names ...string) CafesQ
 	FilterByRatingFrom(ratings ...float64) CafesQ
 	FilterByRatingTo(ratings ...float64) CafesQ

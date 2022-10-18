@@ -19,7 +19,7 @@ func GetCafe(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	resultCafe, err := helpers.CafesQ(r).FilterByID(request.CafeID).Get()
+	resultCafe, err := helpers.CafesQ(r).FilterById(request.CafeID).Get()
 	if err != nil {
 		helpers.Log(r).WithError(err).Error("failed to get cafe from DB")
 		ape.Render(w, problems.InternalError())
@@ -30,7 +30,7 @@ func GetCafe(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	relateAddress, err := helpers.AddressesQ(r).FilterByID(resultCafe.AddressId).Get()
+	relateAddress, err := helpers.AddressesQ(r).FilterById(resultCafe.AddressId).Get()
 	if err != nil {
 		helpers.Log(r).WithError(err).Error("failed to get address")
 		ape.RenderErr(w, problems.NotFound())

@@ -9,7 +9,7 @@ import (
 
 type GetCafeListRequest struct {
 	pgdb.OffsetPageParams
-	FilterName   []string `filter:"name"`
+	FilterName   []string `filter:"cafe_name"`
 	FilterRating []string `filter:"rating"`
 }
 

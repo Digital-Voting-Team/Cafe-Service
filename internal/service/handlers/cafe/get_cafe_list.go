@@ -27,7 +27,7 @@ func GetCafeList(w http.ResponseWriter, r *http.Request) {
 		ape.Render(w, problems.InternalError())
 		return
 	}
-	addresses, err := helpers.AddressesQ(r).FilterByID(getAddressIDs(cafes)...).Select()
+	addresses, err := helpers.AddressesQ(r).FilterById(getAddressIds(cafes)...).Select()
 
 	response := resources.CafeListResponse{
 		Data:     newCafesList(cafes),
@@ -40,6 +40,7 @@ func GetCafeList(w http.ResponseWriter, r *http.Request) {
 func applyFilters(q data.CafesQ, request requests.GetCafeListRequest) {
 	q.Page(request.OffsetPageParams)
 
+	// TODO filter by rating?
 	if len(request.FilterName) > 0 {
 		q.FilterByNames(request.FilterName...)
 	}
@@ -67,7 +68,7 @@ func newCafesList(cafes []data.Cafe) []resources.Cafe {
 	return result
 }
 
-func getAddressIDs(cafes []data.Cafe) []int64 {
+func getAddressIds(cafes []data.Cafe) []int64 {
 	addressIDs := make([]int64, len(cafes))
 	for i := 0; i < len(cafes); i++ {
 		addressIDs[i] = cafes[i].AddressId

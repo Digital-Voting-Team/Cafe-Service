@@ -17,7 +17,7 @@ func DeleteCafe(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	Cafe, err := helpers.CafesQ(r).FilterByID(request.CafeID).Get()
+	Cafe, err := helpers.CafesQ(r).FilterById(request.CafeID).Get()
 	if Cafe == nil {
 		ape.Render(w, problems.NotFound())
 		return

@@ -28,7 +28,7 @@ func CreateCafe(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var resultCafe data.Cafe
-	relateAddress, err := helpers.AddressesQ(r).FilterByID(Cafe.AddressId).Get()
+	relateAddress, err := helpers.AddressesQ(r).FilterById(Cafe.AddressId).Get()
 	if err != nil {
 		// TODO ask how to send address not found instead of internal error
 		helpers.Log(r).WithError(err).Error("failed to get address")

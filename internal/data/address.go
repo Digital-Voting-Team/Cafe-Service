@@ -16,7 +16,7 @@ type AddressesQ interface {
 
 	Page(pageParams pgdb.OffsetPageParams) AddressesQ
 
-	FilterByID(ids ...int64) AddressesQ
+	FilterById(ids ...int64) AddressesQ
 	FilterByBuildingNumber(numbers ...int64) AddressesQ
 	FilterByStreet(streets ...string) AddressesQ
 	FilterByCities(cities ...string) AddressesQ
