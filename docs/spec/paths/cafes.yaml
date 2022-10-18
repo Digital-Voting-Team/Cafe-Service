@@ -1,0 +1,83 @@
+post:
+  tags:
+    - Cafe
+  summary: Create cafe
+  operationId: createCafe
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - data
+          properties:
+            data:
+              $ref: '#/components/schemas/Cafe'
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/Cafe'
+    '401':
+      description: Cafe creation is not allowed
+      content:
+        application/vnd.api+json:
+          schema:
+            $ref: '#/components/schemas/Errors'
+    '500':
+      description: Failed to process request
+      content:
+        application/vnd.api+json:
+          schema:
+            $ref: '#/components/schemas/Errors'
+
+
+get:
+  tags:
+    - Cafe
+  summary: Get cafe list
+  operationId: getCafeList
+  parameters:
+    - $ref: '#/components/parameters/pageNumberParam'
+    - $ref: '#/components/parameters/pageLimitParam'
+    - $ref: '#/components/parameters/sortingParam'
+    - name: 'filter[from]'
+      in: query
+      required: false
+      schema:
+        type: string
+        format: float64
+    - name: 'filter[to]'
+      in: query
+      required: false
+      schema:
+        type: string
+        format: float64
+    - name: 'include'
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+          - address
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cafe'
+              included:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Address'

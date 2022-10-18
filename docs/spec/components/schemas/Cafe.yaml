@@ -1,0 +1,28 @@
+allOf:
+  - $ref: '#/components/schemas/CafeKey'
+  - type: object
+    required:
+      - attributes
+      - relationships
+    properties:
+      relationships:
+        type: object
+        required:
+          - address
+        properties:
+          address:
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                $ref: '#/components/schemas/AddressKey'
+      attributes:
+        type: object
+        required:
+          - cafe_name
+        properties:
+          cafe_name:
+            type: string
+          rating:
+            type: string

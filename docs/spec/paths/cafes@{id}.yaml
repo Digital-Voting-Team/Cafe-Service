@@ -1,0 +1,105 @@
+parameters:
+  - name: id
+    in: path
+    description: 'Cafe identifier'
+    required: true
+    schema:
+      type: string
+      format: int64
+
+get:
+  tags:
+    - Cafe
+  summary: Get Cafe
+  description: 'Get cafe by id'
+  operationId: getCafe
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/Cafe'
+              included:
+                $ref: '#/components/schemas/Address'
+    '400':
+      description: Invalid request
+      content:
+        application/vnd.api+json:
+          schema:
+            $ref: '#/components/schemas/Errors'
+    '404':
+      description: Cafe not found
+      content:
+        application/vnd.api+json:
+          schema:
+            $ref: '#/components/schemas/Errors'
+    '500':
+      description: Failed to get cafe
+      content:
+        application/vnd.api+json:
+          schema:
+            $ref: '#/components/schemas/Errors'
+
+put:
+  tags:
+    - Cafe
+  summary: Update Cafe
+  description: 'Update cafe by id'
+  operationId: updateCafe
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/Cafe'
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/components/schemas/Cafe'
+    '404':
+      description: Invalid cafe id
+      content:
+        application/vnd.api+json:
+          schema:
+            $ref: '#/components/schemas/Errors'
+    '500':
+      description: Failed to get cafe or failed to mark cafe deleted
+      content:
+        application/vnd.api+json:
+          schema:
+            $ref: '#/components/schemas/Errors'
+
+
+delete:
+  tags:
+    - Cafe
+  summary: Delete Cafe
+  description: 'Delete cafe by id'
+  operationId: deleteCafe
+  responses:
+    '204':
+      description: Cafe deleted
+    '404':
+      description: Invalid cafe id
+      content:
+        application/vnd.api+json:
+          schema:
+            $ref: '#/components/schemas/Errors'
+    '500':
+      description: Failed to get cafe or failed to mark cafe deleted
+      content:
+        application/vnd.api+json:
+          schema:
+            $ref: '#/components/schemas/Errors'
