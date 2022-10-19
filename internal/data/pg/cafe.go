@@ -98,13 +98,13 @@ func (p *cafesQ) FilterByNames(names ...string) data.CafesQ {
 }
 
 func (p *cafesQ) FilterByRatingFrom(ratings ...float64) data.CafesQ {
-	stmt := sq.GtOrEq{"cafes.rating": ratings}
+	stmt := sq.GtOrEq{"rating": ratings}
 	p.sql = p.sql.Where(stmt)
 	return p
 }
 
 func (p *cafesQ) FilterByRatingTo(ratings ...float64) data.CafesQ {
-	stmt := sq.LtOrEq{"cafes.rating": ratings}
+	stmt := sq.LtOrEq{"rating": ratings}
 	p.sql = p.sql.Where(stmt)
 	return p
 }
