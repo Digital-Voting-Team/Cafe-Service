@@ -31,7 +31,7 @@ func GetAddress(w http.ResponseWriter, r *http.Request) {
 
 	result := resources.AddressResponse{
 		Data: resources.Address{
-			Key: resources.NewKeyInt64(address.ID, resources.ADDRESS),
+			Key: resources.NewKeyInt64(address.Id, resources.ADDRESS),
 			Attributes: resources.AddressAttributes{
 				BuildingNumber: address.BuildingNumber,
 				Street:         address.Street,

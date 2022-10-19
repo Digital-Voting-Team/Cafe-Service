@@ -45,7 +45,7 @@ func CreateCafe(w http.ResponseWriter, r *http.Request) {
 
 	var includes resources.Included
 	includes.Add(&resources.Address{
-		Key: resources.NewKeyInt64(relateAddress.ID, resources.ADDRESS),
+		Key: resources.NewKeyInt64(relateAddress.Id, resources.ADDRESS),
 		Attributes: resources.AddressAttributes{
 			BuildingNumber: relateAddress.BuildingNumber,
 			Street:         relateAddress.Street,

@@ -39,7 +39,7 @@ func CreateAddress(w http.ResponseWriter, r *http.Request) {
 
 	result := resources.AddressResponse{
 		Data: resources.Address{
-			Key: resources.NewKeyInt64(resultAddress.ID, resources.ADDRESS),
+			Key: resources.NewKeyInt64(resultAddress.Id, resources.ADDRESS),
 			Attributes: resources.AddressAttributes{
 				BuildingNumber: resultAddress.BuildingNumber,
 				Street:         resultAddress.Street,

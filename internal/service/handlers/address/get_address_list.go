@@ -66,7 +66,7 @@ func newAddressesList(addresses []data.Address) []resources.Address {
 	result := make([]resources.Address, len(addresses))
 	for i, address := range addresses {
 		result[i] = resources.Address{
-			Key: resources.NewKeyInt64(address.ID, resources.ADDRESS),
+			Key: resources.NewKeyInt64(address.Id, resources.ADDRESS),
 			Attributes: resources.AddressAttributes{
 				BuildingNumber: address.BuildingNumber,
 				Street:         address.Street,

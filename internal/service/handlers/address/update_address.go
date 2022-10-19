@@ -35,7 +35,7 @@ func UpdateAddress(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var resultAddress data.Address
-	resultAddress, err = helpers.AddressesQ(r).FilterById(address.ID).Update(newAddress)
+	resultAddress, err = helpers.AddressesQ(r).FilterById(address.Id).Update(newAddress)
 	if err != nil {
 		helpers.Log(r).WithError(err).Error("failed to update address")
 		ape.RenderErr(w, problems.InternalError())
@@ -44,7 +44,7 @@ func UpdateAddress(w http.ResponseWriter, r *http.Request) {
 
 	result := resources.AddressResponse{
 		Data: resources.Address{
-			Key: resources.NewKeyInt64(resultAddress.ID, resources.ADDRESS),
+			Key: resources.NewKeyInt64(resultAddress.Id, resources.ADDRESS),
 			Attributes: resources.AddressAttributes{
 				BuildingNumber: resultAddress.BuildingNumber,
 				Street:         resultAddress.Street,

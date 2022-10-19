@@ -742,9 +742,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"customer-service@workspace:.":
+"Cafe-Service@workspace:.":
   version: 0.0.0-use.local
-  resolution: "customer-service@workspace:."
+  resolution: "Cafe-Service@workspace:."
   dependencies:
     swagger-repo: ^2.0.0-rc.15
   languageName: unknown

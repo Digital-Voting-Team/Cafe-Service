@@ -26,7 +26,7 @@ type AddressesQ interface {
 }
 
 type Address struct {
-	ID             int64  `db:"id" structs:"-"`
+	Id             int64  `db:"id" structs:"-"`
 	BuildingNumber int64  `db:"building_number" structs:"building_number"`
 	Street         string `db:"street" structs:"street"`
 	City           string `db:"city" structs:"city"`

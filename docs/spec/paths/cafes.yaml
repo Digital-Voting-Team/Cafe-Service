@@ -1,7 +1,7 @@
 post:
   tags:
     - Cafe
-  summary: Create cafe
+  summary: Create Cafe
   operationId: createCafe
   requestBody:
     content:
@@ -40,7 +40,7 @@ post:
 get:
   tags:
     - Cafe
-  summary: Get cafe list
+  summary: Get Cafe list
   operationId: getCafeList
   parameters:
     - $ref: '#/components/parameters/pageNumberParam'
@@ -58,13 +58,6 @@ get:
       schema:
         type: string
         format: float64
-    - name: 'include'
-      in: query
-      required: false
-      schema:
-        type: string
-        enum:
-          - address
   responses:
     '200':
       description: Success

@@ -1,7 +1,7 @@
 post:
   tags:
     - Address
-  summary: Create address
+  summary: Create Address
   operationId: createAddress
   requestBody:
     content:
@@ -40,7 +40,7 @@ post:
 get:
   tags:
     - Address
-  summary: Get address list
+  summary: Get Address list
   operationId: getAddressList
   parameters:
     - $ref: '#/components/parameters/pageNumberParam'

@@ -87,7 +87,7 @@ func newCafeIncluded(addresses []data.Address) resources.Included {
 
 func newAddressModel(address data.Address) resources.Address {
 	return resources.Address{
-		Key: resources.NewKeyInt64(address.ID, resources.ADDRESS),
+		Key: resources.NewKeyInt64(address.Id, resources.ADDRESS),
 		Attributes: resources.AddressAttributes{
 			BuildingNumber: address.BuildingNumber,
 			Street:         address.Street,

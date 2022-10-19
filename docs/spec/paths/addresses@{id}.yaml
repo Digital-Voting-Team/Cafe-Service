@@ -11,7 +11,7 @@ get:
   tags:
     - Address
   summary: Get Address
-  description: 'Get address by id'
+  description: 'Get Address by id'
   operationId: getAddress
   responses:
     '200':
@@ -36,7 +36,7 @@ get:
           schema:
             $ref: '#/components/schemas/Errors'
     '500':
-      description: Failed to get address
+      description: Failed to get Address
       content:
         application/vnd.api+json:
           schema:
@@ -46,7 +46,7 @@ put:
   tags:
     - Address
   summary: Update Address
-  description: 'Update address by id'
+  description: 'Update Address by id'
   operationId: updateAddress
   requestBody:
     content:
@@ -60,13 +60,13 @@ put:
     '200':
       description: Address updated
     '404':
-      description: Invalid address id
+      description: Invalid Address id
       content:
         application/vnd.api+json:
           schema:
             $ref: '#/components/schemas/Errors'
     '500':
-      description: Failed to get address or failed to mark address deleted
+      description: Failed to get Address or failed to mark Address deleted
       content:
         application/vnd.api+json:
           schema:
@@ -77,19 +77,19 @@ delete:
   tags:
     - Address
   summary: Delete Address
-  description: 'Delete address by id'
+  description: 'Delete Address by id'
   operationId: deleteAddress
   responses:
     '204':
       description: Address deleted
     '404':
-      description: Invalid address id
+      description: Invalid Address id
       content:
         application/vnd.api+json:
           schema:
             $ref: '#/components/schemas/Errors'
     '500':
-      description: Failed to get address or failed to mark address deleted
+      description: Failed to get Address or failed to mark Address deleted
       content:
         application/vnd.api+json:
           schema:

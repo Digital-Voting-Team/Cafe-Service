@@ -21,7 +21,7 @@ type AddressListResponse struct {
 
 // MustAddress - returns Address from include collection.
 // if entry with specified key does not exist - returns nil
-// if entry with specified key exists but type or ID mismatches - panics
+// if entry with specified key exists but type or Id mismatches - panics
 func (c *Included) MustAddress(key Key) *Address {
 	var address Address
 	if c.tryFindEntry(key, &address) {
