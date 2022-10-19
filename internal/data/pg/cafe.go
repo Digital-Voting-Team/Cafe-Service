@@ -25,13 +25,13 @@ type cafesQ struct {
 	sqlUpdate sq.UpdateBuilder
 }
 
-func (p *cafesQ) New() data.CafesQ {
-	return NewCafesQ(p.db)
+func (q *cafesQ) New() data.CafesQ {
+	return NewCafesQ(q.db)
 }
 
-func (p *cafesQ) Get() (*data.Cafe, error) {
+func (q *cafesQ) Get() (*data.Cafe, error) {
 	var result data.Cafe
-	err := p.db.Get(&result, p.sql)
+	err := q.db.Get(&result, q.sql)
 	if err == sql.ErrNoRows {
 		return nil, nil
 	}
@@ -39,30 +39,30 @@ func (p *cafesQ) Get() (*data.Cafe, error) {
 	return &result, err
 }
 
-func (p *cafesQ) Select() ([]data.Cafe, error) {
+func (q *cafesQ) Select() ([]data.Cafe, error) {
 	var result []data.Cafe
-	err := p.db.Select(&result, p.sql)
+	err := q.db.Select(&result, q.sql)
 	return result, err
 }
 
-func (p *cafesQ) Update(cafe data.Cafe) (data.Cafe, error) {
+func (q *cafesQ) Update(cafe data.Cafe) (data.Cafe, error) {
 	var result data.Cafe
 	clauses := structs.Map(cafe)
 	clauses["cafe_name"] = cafe.CafeName
 	clauses["rating"] = cafe.Rating
 	clauses["address_id"] = cafe.AddressId
 
-	err := p.db.Get(&result, p.sqlUpdate.SetMap(clauses))
+	err := q.db.Get(&result, q.sqlUpdate.SetMap(clauses))
 	return result, err
 }
 
-func (p *cafesQ) Transaction(fn func(q data.CafesQ) error) error {
-	return p.db.Transaction(func() error {
-		return fn(p)
+func (q *cafesQ) Transaction(fn func(q data.CafesQ) error) error {
+	return q.db.Transaction(func() error {
+		return fn(q)
 	})
 }
 
-func (p *cafesQ) Insert(cafe data.Cafe) (data.Cafe, error) {
+func (q *cafesQ) Insert(cafe data.Cafe) (data.Cafe, error) {
 	clauses := structs.Map(cafe)
 	clauses["cafe_name"] = cafe.CafeName
 	clauses["rating"] = cafe.Rating
@@ -70,48 +70,48 @@ func (p *cafesQ) Insert(cafe data.Cafe) (data.Cafe, error) {
 
 	var result data.Cafe
 	stmt := sq.Insert(cafesTableName).SetMap(clauses).Suffix("returning *")
-	err := p.db.Get(&result, stmt)
+	err := q.db.Get(&result, stmt)
 
 	return result, err
 }
 
-func (p *cafesQ) Delete(id int64) error {
+func (q *cafesQ) Delete(id int64) error {
 	stmt := sq.Delete(cafesTableName).Where(sq.Eq{"id": id})
-	err := p.db.Exec(stmt)
+	err := q.db.Exec(stmt)
 	return err
 }
 
-func (p *cafesQ) Page(pageParams pgdb.OffsetPageParams) data.CafesQ {
-	p.sql = pageParams.ApplyTo(p.sql, "id")
-	return p
+func (q *cafesQ) Page(pageParams pgdb.OffsetPageParams) data.CafesQ {
+	q.sql = pageParams.ApplyTo(q.sql, "id")
+	return q
 }
 
-func (p *cafesQ) FilterById(ids ...int64) data.CafesQ {
-	p.sql = p.sql.Where(sq.Eq{"id": ids})
-	p.sqlUpdate = p.sqlUpdate.Where(sq.Eq{"id": ids})
-	return p
+func (q *cafesQ) FilterById(ids ...int64) data.CafesQ {
+	q.sql = q.sql.Where(sq.Eq{"id": ids})
+	q.sqlUpdate = q.sqlUpdate.Where(sq.Eq{"id": ids})
+	return q
 }
 
-func (p *cafesQ) FilterByNames(names ...string) data.CafesQ {
-	p.sql = p.sql.Where(sq.Eq{"cafe_name": names})
-	return p
+func (q *cafesQ) FilterByNames(names ...string) data.CafesQ {
+	q.sql = q.sql.Where(sq.Eq{"cafe_name": names})
+	return q
 }
 
-func (p *cafesQ) FilterByRatingFrom(ratings ...float64) data.CafesQ {
+func (q *cafesQ) FilterByRatingFrom(ratings ...float64) data.CafesQ {
 	stmt := sq.GtOrEq{"rating": ratings}
-	p.sql = p.sql.Where(stmt)
-	return p
+	q.sql = q.sql.Where(stmt)
+	return q
 }
 
-func (p *cafesQ) FilterByRatingTo(ratings ...float64) data.CafesQ {
+func (q *cafesQ) FilterByRatingTo(ratings ...float64) data.CafesQ {
 	stmt := sq.LtOrEq{"rating": ratings}
-	p.sql = p.sql.Where(stmt)
-	return p
+	q.sql = q.sql.Where(stmt)
+	return q
 }
 
-func (p *cafesQ) JoinAddress() data.CafesQ {
+func (q *cafesQ) JoinAddress() data.CafesQ {
 	stmt := fmt.Sprintf("%s as cafes on public.addresses.id = cafes.address_id",
 		cafesTableName)
-	p.sql = p.sql.Join(stmt)
-	return p
+	q.sql = q.sql.Join(stmt)
+	return q
 }
