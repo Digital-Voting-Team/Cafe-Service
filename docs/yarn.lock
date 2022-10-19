@@ -466,6 +466,14 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cafe-service@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "cafe-service@workspace:."
+  dependencies:
+    swagger-repo: ^2.0.0-rc.15
+  languageName: unknown
+  linkType: soft
+
 "call-bind@npm:^1.0.0":
   version: 1.0.2
   resolution: "call-bind@npm:1.0.2"
@@ -741,14 +749,6 @@ __metadata:
   checksum: f893bb0d96cd3d5751d04e67145bdddf25f99449531a72e82dcbbd42796bbc8268c1076c6b3ea51d4d455839902804b94bc45dfb37ecbb32ea8e54a6741c3ab9
   languageName: node
   linkType: hard
-
-"Cafe-Service@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "Cafe-Service@workspace:."
-  dependencies:
-    swagger-repo: ^2.0.0-rc.15
-  languageName: unknown
-  linkType: soft
 
 "debug@npm:2.6.9, debug@npm:^2.2.0, debug@npm:^2.3.3":
   version: 2.6.9

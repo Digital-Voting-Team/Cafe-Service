@@ -19,14 +19,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     ],
     "dependencyTreeRoots": [
       {
-        "name": "customer-service",
+        "name": "cafe-service",
         "reference": "workspace:."
       }
     ],
     "enableTopLevelFallback": true,
     "ignorePatternData": "(^(?:\\.yarn\\/sdks(?:\\/(?!\\.{1,2}(?:\\/|$))(?:(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$)).)*?)|$))$)",
     "fallbackExclusionList": [
-      ["customer-service", ["workspace:."]]
+      ["cafe-service", ["workspace:."]]
     ],
     "fallbackPool": [
     ],
@@ -575,6 +575,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["cafe-service", [
+        ["workspace:.", {
+          "packageLocation": "./",
+          "packageDependencies": [
+            ["cafe-service", "workspace:."],
+            ["swagger-repo", "npm:2.0.0-rc.15"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
       ["call-bind", [
         ["npm:1.0.2", {
           "packageLocation": "./.yarn/cache/call-bind-npm-1.0.2-c957124861-f8e31de9d1.zip/node_modules/call-bind/",
@@ -895,16 +905,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["which", "npm:1.3.1"]
           ],
           "linkType": "HARD",
-        }]
-      ]],
-      ["customer-service", [
-        ["workspace:.", {
-          "packageLocation": "./",
-          "packageDependencies": [
-            ["customer-service", "workspace:."],
-            ["swagger-repo", "npm:2.0.0-rc.15"]
-          ],
-          "linkType": "SOFT",
         }]
       ]],
       ["debug", [
