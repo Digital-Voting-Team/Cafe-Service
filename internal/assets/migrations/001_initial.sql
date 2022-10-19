@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS public.cafes
     primary key,
     cafe_name character varying COLLATE pg_catalog."default" NOT NULL,
     address_id integer NOT NULL,
-    rating character varying COLLATE pg_catalog."default" NOT NULL,
+    rating character varying COLLATE pg_catalog."default",
     CONSTRAINT address_id FOREIGN KEY (address_id)
     REFERENCES public.addresses (id) MATCH SIMPLE
     ON UPDATE NO ACTION
