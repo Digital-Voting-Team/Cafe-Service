@@ -10,7 +10,7 @@ import (
 )
 
 type GetCafeRequest struct {
-	CafeID int64 `url:"-"`
+	CafeId int64 `url:"-"`
 }
 
 func NewGetCafeRequest(r *http.Request) (GetCafeRequest, error) {
@@ -21,7 +21,7 @@ func NewGetCafeRequest(r *http.Request) (GetCafeRequest, error) {
 		return request, err
 	}
 
-	request.CafeID = cast.ToInt64(chi.URLParam(r, "id"))
+	request.CafeId = cast.ToInt64(chi.URLParam(r, "id"))
 
 	return request, nil
 }

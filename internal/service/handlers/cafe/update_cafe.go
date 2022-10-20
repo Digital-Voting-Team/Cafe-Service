@@ -21,7 +21,7 @@ func UpdateCafe(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	cafe, err := helpers.CafesQ(r).FilterById(request.CafeID).Get()
+	cafe, err := helpers.CafesQ(r).FilterById(request.CafeId).Get()
 	if cafe == nil {
 		ape.Render(w, problems.NotFound())
 		return

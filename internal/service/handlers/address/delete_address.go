@@ -17,13 +17,13 @@ func DeleteAddress(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	address, err := helpers.AddressesQ(r).FilterById(request.AddressID).Get()
+	address, err := helpers.AddressesQ(r).FilterById(request.AddressId).Get()
 	if address == nil {
 		ape.Render(w, problems.NotFound())
 		return
 	}
 
-	err = helpers.AddressesQ(r).Delete(request.AddressID)
+	err = helpers.AddressesQ(r).Delete(request.AddressId)
 	if err != nil {
 		helpers.Log(r).WithError(err).Error("failed to delete address")
 		ape.RenderErr(w, problems.InternalError())

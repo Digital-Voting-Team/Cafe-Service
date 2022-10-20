@@ -10,7 +10,7 @@ import (
 )
 
 type GetAddressRequest struct {
-	AddressID int64 `url:"-"`
+	AddressId int64 `url:"-"`
 }
 
 func NewGetAddressRequest(r *http.Request) (GetAddressRequest, error) {
@@ -21,7 +21,7 @@ func NewGetAddressRequest(r *http.Request) (GetAddressRequest, error) {
 		return request, err
 	}
 
-	request.AddressID = cast.ToInt64(chi.URLParam(r, "id"))
+	request.AddressId = cast.ToInt64(chi.URLParam(r, "id"))
 
 	return request, nil
 }

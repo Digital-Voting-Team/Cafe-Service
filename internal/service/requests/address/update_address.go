@@ -14,7 +14,7 @@ import (
 )
 
 type UpdateAddressRequest struct {
-	AddressID int64 `url:"-" json:"-"`
+	AddressId int64 `url:"-" json:"-"`
 	Data      resources.Address
 }
 
@@ -26,7 +26,7 @@ func NewUpdateAddressRequest(r *http.Request) (UpdateAddressRequest, error) {
 		return request, err
 	}
 
-	request.AddressID = cast.ToInt64(chi.URLParam(r, "id"))
+	request.AddressId = cast.ToInt64(chi.URLParam(r, "id"))
 
 	if err := json.NewDecoder(r.Body).Decode(&request); err != nil {
 		return request, errors.Wrap(err, "failed to unmarshal")

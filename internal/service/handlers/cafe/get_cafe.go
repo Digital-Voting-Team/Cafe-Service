@@ -19,7 +19,7 @@ func GetCafe(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	resultCafe, err := helpers.CafesQ(r).FilterById(request.CafeID).Get()
+	resultCafe, err := helpers.CafesQ(r).FilterById(request.CafeId).Get()
 	if err != nil {
 		helpers.Log(r).WithError(err).Error("failed to get cafe from DB")
 		ape.Render(w, problems.InternalError())

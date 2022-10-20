@@ -18,7 +18,7 @@ func GetAddress(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	address, err := helpers.AddressesQ(r).FilterById(request.AddressID).Get()
+	address, err := helpers.AddressesQ(r).FilterById(request.AddressId).Get()
 	if err != nil {
 		helpers.Log(r).WithError(err).Error("failed to get address from DB")
 		ape.Render(w, problems.InternalError())

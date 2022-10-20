@@ -9,7 +9,7 @@ import (
 )
 
 type DeleteCafeRequest struct {
-	CafeID int64 `url:"-"`
+	CafeId int64 `url:"-"`
 }
 
 func NewDeleteCafeRequest(r *http.Request) (DeleteCafeRequest, error) {
@@ -20,7 +20,7 @@ func NewDeleteCafeRequest(r *http.Request) (DeleteCafeRequest, error) {
 		return request, err
 	}
 
-	request.CafeID = cast.ToInt64(chi.URLParam(r, "id"))
+	request.CafeId = cast.ToInt64(chi.URLParam(r, "id"))
 
 	return request, nil
 }

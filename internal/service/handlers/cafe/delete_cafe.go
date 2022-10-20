@@ -17,13 +17,13 @@ func DeleteCafe(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	Cafe, err := helpers.CafesQ(r).FilterById(request.CafeID).Get()
+	Cafe, err := helpers.CafesQ(r).FilterById(request.CafeId).Get()
 	if Cafe == nil {
 		ape.Render(w, problems.NotFound())
 		return
 	}
 
-	err = helpers.CafesQ(r).Delete(request.CafeID)
+	err = helpers.CafesQ(r).Delete(request.CafeId)
 	if err != nil {
 		helpers.Log(r).WithError(err).Error("failed to delete cafe")
 		ape.RenderErr(w, problems.InternalError())

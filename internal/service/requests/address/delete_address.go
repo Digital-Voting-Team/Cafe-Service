@@ -9,7 +9,7 @@ import (
 )
 
 type DeleteAddressRequest struct {
-	AddressID int64 `url:"-"`
+	AddressId int64 `url:"-"`
 }
 
 func NewDeleteAddressRequest(r *http.Request) (DeleteAddressRequest, error) {
@@ -20,7 +20,7 @@ func NewDeleteAddressRequest(r *http.Request) (DeleteAddressRequest, error) {
 		return request, err
 	}
 
-	request.AddressID = cast.ToInt64(chi.URLParam(r, "id"))
+	request.AddressId = cast.ToInt64(chi.URLParam(r, "id"))
 
 	return request, nil
 }

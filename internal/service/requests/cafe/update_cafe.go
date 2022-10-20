@@ -14,7 +14,7 @@ import (
 )
 
 type UpdateCafeRequest struct {
-	CafeID int64 `url:"-" json:"-"`
+	CafeId int64 `url:"-" json:"-"`
 	Data   resources.Cafe
 }
 
@@ -26,7 +26,7 @@ func NewUpdateCafeRequest(r *http.Request) (UpdateCafeRequest, error) {
 		return request, err
 	}
 
-	request.CafeID = cast.ToInt64(chi.URLParam(r, "id"))
+	request.CafeId = cast.ToInt64(chi.URLParam(r, "id"))
 
 	if err := json.NewDecoder(r.Body).Decode(&request); err != nil {
 		return request, errors.Wrap(err, "failed to unmarshal")
