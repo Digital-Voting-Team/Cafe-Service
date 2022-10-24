@@ -109,6 +109,11 @@ func (q *cafesQ) FilterByRatingTo(ratings ...float64) data.CafesQ {
 	return q
 }
 
+func (q *cafesQ) FilterByAddressId(ids ...int64) data.CafesQ {
+	q.sql = q.sql.Where(sq.Eq{"address_id": ids})
+	return q
+}
+
 func (q *cafesQ) JoinAddress() data.CafesQ {
 	stmt := fmt.Sprintf("%s as cafes on public.addresses.id = cafes.address_id",
 		cafesTableName)

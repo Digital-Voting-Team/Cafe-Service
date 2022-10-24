@@ -22,6 +22,7 @@ type CafesQ interface {
 	FilterByNames(names ...string) CafesQ
 	FilterByRatingFrom(ratings ...float64) CafesQ
 	FilterByRatingTo(ratings ...float64) CafesQ
+	FilterByAddressId(ids ...int64) CafesQ
 
 	JoinAddress() CafesQ
 }

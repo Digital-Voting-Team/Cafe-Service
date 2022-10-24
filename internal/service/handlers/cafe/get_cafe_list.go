@@ -51,6 +51,10 @@ func applyFilters(q data.CafesQ, request requests.GetCafeListRequest) {
 	if request.FilterRatingTo != nil {
 		q.FilterByRatingTo(*request.FilterRatingTo...)
 	}
+
+	if len(request.FilterAddressId) > 0 {
+		q.FilterByAddressId(request.FilterAddressId...)
+	}
 }
 
 func newCafesList(cafes []data.Cafe) []resources.Cafe {

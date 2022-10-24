@@ -12,6 +12,7 @@ type GetCafeListRequest struct {
 	FilterName       []string   `filter:"cafe_name"`
 	FilterRatingTo   *[]float64 `filter:"rating_to"`
 	FilterRatingFrom *[]float64 `filter:"rating_from"`
+	FilterAddressId  []int64    `filter:"address_id"`
 }
 
 func NewGetCafeListRequest(r *http.Request) (GetCafeListRequest, error) {
