@@ -40,9 +40,16 @@ func GetCafeList(w http.ResponseWriter, r *http.Request) {
 func applyFilters(q data.CafesQ, request requests.GetCafeListRequest) {
 	q.Page(request.OffsetPageParams)
 
-	// TODO filter by rating?
 	if len(request.FilterName) > 0 {
 		q.FilterByNames(request.FilterName...)
+	}
+
+	if request.FilterRatingFrom != nil {
+		q.FilterByRatingFrom(*request.FilterRatingFrom...)
+	}
+
+	if request.FilterRatingTo != nil {
+		q.FilterByRatingTo(*request.FilterRatingTo...)
 	}
 }
 

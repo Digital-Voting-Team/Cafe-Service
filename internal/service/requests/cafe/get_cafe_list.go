@@ -9,8 +9,9 @@ import (
 
 type GetCafeListRequest struct {
 	pgdb.OffsetPageParams
-	FilterName   []string `filter:"cafe_name"`
-	FilterRating []string `filter:"rating"`
+	FilterName       []string   `filter:"cafe_name"`
+	FilterRatingTo   *[]float64 `filter:"rating_to"`
+	FilterRatingFrom *[]float64 `filter:"rating_from"`
 }
 
 func NewGetCafeListRequest(r *http.Request) (GetCafeListRequest, error) {
