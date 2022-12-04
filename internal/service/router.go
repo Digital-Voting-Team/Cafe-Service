@@ -1,19 +1,19 @@
 package service
 
 import (
-	"Cafe-Service/internal/data/pg"
-	address "Cafe-Service/internal/service/handlers/address"
-	cafe "Cafe-Service/internal/service/handlers/cafe"
+	"cafe-service/internal/data/pg"
+	address "cafe-service/internal/service/handlers/address"
+	cafe "cafe-service/internal/service/handlers/cafe"
 	"github.com/go-chi/chi"
 	"gitlab.com/distributed_lab/ape"
 
-	"Cafe-Service/internal/service/helpers"
+	"cafe-service/internal/service/helpers"
 )
 
 func (s *service) router() chi.Router {
 	r := chi.NewRouter()
 	log := s.log.WithFields(map[string]interface{}{
-		"service": "Cafe-Service",
+		"service": "cafe-service",
 	})
 
 	r.Use(
@@ -25,7 +25,7 @@ func (s *service) router() chi.Router {
 			helpers.CtxCafesQ(pg.NewCafesQ(s.db)),
 		),
 	)
-	r.Route("/integrations/Cafe-Service", func(r chi.Router) {
+	r.Route("/integrations/cafe-service", func(r chi.Router) {
 		r.Route("/addresses", func(r chi.Router) {
 			r.Post("/", address.CreateAddress)
 			r.Get("/", address.GetAddressList)

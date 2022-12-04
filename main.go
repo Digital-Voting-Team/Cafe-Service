@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"Cafe-Service/internal/cli"
+	"cafe-service/internal/cli"
 )
 
 func main() {

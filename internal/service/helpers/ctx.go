@@ -1,7 +1,7 @@
 package helpers
 
 import (
-	"Cafe-Service/internal/data"
+	"cafe-service/internal/data"
 	"context"
 
 	"net/http"

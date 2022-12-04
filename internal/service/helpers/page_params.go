@@ -1,7 +1,7 @@
 package helpers
 
 import (
-	"Cafe-Service/resources"
+	"cafe-service/resources"
 	"net/http"
 	"strconv"
 

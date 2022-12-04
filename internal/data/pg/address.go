@@ -1,7 +1,7 @@
 package pg
 
 import (
-	"Cafe-Service/internal/data"
+	"cafe-service/internal/data"
 	"database/sql"
 	"gitlab.com/distributed_lab/kit/pgdb"
 

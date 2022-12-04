@@ -3,8 +3,8 @@
 GENERATOR_IMAGE=registry.gitlab.com/tokend/openapi-go-generator:69f004b58152c83f007b593cc13e94b81d7200da
 
 
-GENERATED="E:\Projects\University\CSCA\Cafe-Service\resources"
-OPENAPI_DIR="E:\Projects\University\CSCA\Cafe-Service\docs\web_deploy"
+GENERATED="E:\Projects\University\CSCA\cafe-service\resources"
+OPENAPI_DIR="E:\Projects\University\CSCA\cafe-service\docs\web_deploy"
 PACKAGE_NAME=resources
 
 function printHelp {

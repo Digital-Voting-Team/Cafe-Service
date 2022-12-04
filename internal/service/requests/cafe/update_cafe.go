@@ -1,8 +1,8 @@
 package requests
 
 import (
-	"Cafe-Service/internal/service/helpers"
-	"Cafe-Service/resources"
+	"cafe-service/internal/service/helpers"
+	"cafe-service/resources"
 	"encoding/json"
 	validation "github.com/go-ozzo/ozzo-validation/v4"
 	"gitlab.com/distributed_lab/logan/v3/errors"

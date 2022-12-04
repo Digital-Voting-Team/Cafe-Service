@@ -1,8 +1,8 @@
 package requests
 
 import (
-	"Cafe-Service/internal/service/helpers"
-	"Cafe-Service/resources"
+	"cafe-service/internal/service/helpers"
+	"cafe-service/resources"
 	"encoding/json"
 	"net/http"
 

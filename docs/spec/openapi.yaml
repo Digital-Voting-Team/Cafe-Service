@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
   version: 1.0.0
-  title: Cafe-Service
+  title: cafe-service
   description: ''
 servers:
   - url: 'https://api.demo.cafe-service'
-    description: Cafe-Service Developer Environment
+    description: cafe-service Developer Environment

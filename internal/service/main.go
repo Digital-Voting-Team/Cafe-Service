@@ -5,7 +5,7 @@ import (
 	"net"
 	"net/http"
 
-	"Cafe-Service/internal/config"
+	"cafe-service/internal/config"
 
 	"gitlab.com/distributed_lab/kit/copus/types"
 	"gitlab.com/distributed_lab/logan/v3"

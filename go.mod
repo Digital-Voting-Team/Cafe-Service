@@ -1,4 +1,4 @@
-module Cafe-Service
+module cafe-service
 
 go 1.19
 
