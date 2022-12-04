@@ -6,7 +6,7 @@ services:
     build: .
     ports:
       # localhost:docker
-      - "8100:9102"
+      - "9106:9106"
     depends_on:
       - db
     environment:
