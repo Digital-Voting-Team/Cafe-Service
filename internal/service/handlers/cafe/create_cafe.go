@@ -1,10 +1,10 @@
 package handlers
 
 import (
-	"cafe-service/internal/data"
-	"cafe-service/internal/service/helpers"
-	requests "cafe-service/internal/service/requests/cafe"
-	"cafe-service/resources"
+	"github.com/Digital-Voting-Team/cafe-service/internal/data"
+	"github.com/Digital-Voting-Team/cafe-service/internal/service/helpers"
+	requests "github.com/Digital-Voting-Team/cafe-service/internal/service/requests/cafe"
+	"github.com/Digital-Voting-Team/cafe-service/resources"
 	"github.com/spf13/cast"
 	"net/http"
 	"strconv"

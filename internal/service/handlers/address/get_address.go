@@ -1,9 +1,9 @@
 package handlers
 
 import (
-	"cafe-service/internal/service/helpers"
-	requests "cafe-service/internal/service/requests/address"
-	"cafe-service/resources"
+	"github.com/Digital-Voting-Team/cafe-service/internal/service/helpers"
+	requests "github.com/Digital-Voting-Team/cafe-service/internal/service/requests/address"
+	"github.com/Digital-Voting-Team/cafe-service/resources"
 	"net/http"
 
 	"gitlab.com/distributed_lab/ape"

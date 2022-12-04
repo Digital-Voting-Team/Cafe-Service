@@ -1,8 +1,8 @@
 package cli
 
 import (
-	"cafe-service/internal/assets"
-	"cafe-service/internal/config"
+	"github.com/Digital-Voting-Team/cafe-service/internal/assets"
+	"github.com/Digital-Voting-Team/cafe-service/internal/config"
 
 	migrate "github.com/rubenv/sql-migrate"
 	"gitlab.com/distributed_lab/logan/v3/errors"

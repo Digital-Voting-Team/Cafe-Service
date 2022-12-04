@@ -1,8 +1,8 @@
 package helpers
 
 import (
-	"cafe-service/internal/data"
 	"context"
+	"github.com/Digital-Voting-Team/cafe-service/internal/data"
 
 	"net/http"
 

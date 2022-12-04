@@ -1,9 +1,9 @@
 package pg
 
 import (
-	"cafe-service/internal/data"
 	"database/sql"
 	"fmt"
+	"github.com/Digital-Voting-Team/cafe-service/internal/data"
 	sq "github.com/Masterminds/squirrel"
 	"github.com/fatih/structs"
 	"gitlab.com/distributed_lab/kit/pgdb"

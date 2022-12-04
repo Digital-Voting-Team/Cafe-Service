@@ -1,7 +1,7 @@
 package helpers
 
 import (
-	"cafe-service/resources"
+	"github.com/Digital-Voting-Team/cafe-service/resources"
 	"net/http"
 	"strconv"
 

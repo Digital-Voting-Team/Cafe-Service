@@ -1,8 +1,8 @@
 package cli
 
 import (
-	"cafe-service/internal/config"
-	"cafe-service/internal/service"
+	"github.com/Digital-Voting-Team/cafe-service/internal/config"
+	"github.com/Digital-Voting-Team/cafe-service/internal/service"
 	"gitlab.com/distributed_lab/logan/v3"
 
 	"github.com/alecthomas/kingpin"

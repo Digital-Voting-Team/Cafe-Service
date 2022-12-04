@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"cafe-service/internal/cli"
+	"github.com/Digital-Voting-Team/cafe-service/internal/cli"
 )
 
 func main() {

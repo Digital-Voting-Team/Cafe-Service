@@ -1,14 +1,14 @@
 package service
 
 import (
-	"cafe-service/internal/data/pg"
-	address "cafe-service/internal/service/handlers/address"
-	cafe "cafe-service/internal/service/handlers/cafe"
-	"cafe-service/internal/service/middleware"
+	"github.com/Digital-Voting-Team/cafe-service/internal/data/pg"
+	address "github.com/Digital-Voting-Team/cafe-service/internal/service/handlers/address"
+	cafe "github.com/Digital-Voting-Team/cafe-service/internal/service/handlers/cafe"
+	"github.com/Digital-Voting-Team/cafe-service/internal/service/middleware"
 	"github.com/go-chi/chi"
 	"gitlab.com/distributed_lab/ape"
 
-	"cafe-service/internal/service/helpers"
+	"github.com/Digital-Voting-Team/cafe-service/internal/service/helpers"
 )
 
 func (s *service) router() chi.Router {

@@ -1,10 +1,10 @@
 package middleware
 
 import (
-	"cafe-service/internal/config"
-	"cafe-service/internal/service/helpers"
 	"context"
 	authEndoints "github.com/Digital-Voting-Team/auth-serivce/endpoints"
+	"github.com/Digital-Voting-Team/cafe-service/internal/config"
+	"github.com/Digital-Voting-Team/cafe-service/internal/service/helpers"
 	staffEndoints "github.com/Digital-Voting-Team/staff-service/endpoints"
 	"github.com/spf13/cast"
 	"gitlab.com/distributed_lab/ape"

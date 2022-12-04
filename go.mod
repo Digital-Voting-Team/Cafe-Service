@@ -1,4 +1,4 @@
-module cafe-service
+module github.com/Digital-Voting-Team/cafe-service
 
 go 1.19
 

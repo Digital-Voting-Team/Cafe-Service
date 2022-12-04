@@ -1,9 +1,9 @@
 package requests
 
 import (
-	"cafe-service/internal/service/helpers"
-	"cafe-service/resources"
 	"encoding/json"
+	"github.com/Digital-Voting-Team/cafe-service/internal/service/helpers"
+	"github.com/Digital-Voting-Team/cafe-service/resources"
 	validation "github.com/go-ozzo/ozzo-validation/v4"
 	"gitlab.com/distributed_lab/logan/v3/errors"
 	"net/http"

@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"cafe-service/internal/service/helpers"
+	"github.com/Digital-Voting-Team/cafe-service/internal/service/helpers"
 	staffRes "github.com/Digital-Voting-Team/staff-service/resources"
 	"gitlab.com/distributed_lab/ape"
 	"gitlab.com/distributed_lab/ape/problems"
