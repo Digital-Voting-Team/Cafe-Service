@@ -4,6 +4,7 @@ import (
 	"cafe-service/internal/data/pg"
 	address "cafe-service/internal/service/handlers/address"
 	cafe "cafe-service/internal/service/handlers/cafe"
+	"cafe-service/internal/service/middleware"
 	"github.com/go-chi/chi"
 	"gitlab.com/distributed_lab/ape"
 
@@ -24,8 +25,10 @@ func (s *service) router() chi.Router {
 			helpers.CtxAddressesQ(pg.NewAddressesQ(s.db)),
 			helpers.CtxCafesQ(pg.NewCafesQ(s.db)),
 		),
+		middleware.BasicAuth(s.endpoints),
 	)
 	r.Route("/integrations/cafe-service", func(r chi.Router) {
+		r.Use(middleware.CheckManagerPosition())
 		r.Route("/addresses", func(r chi.Router) {
 			r.Post("/", address.CreateAddress)
 			r.Get("/", address.GetAddressList)
