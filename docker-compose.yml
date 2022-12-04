@@ -16,7 +16,7 @@ services:
     entrypoint: sh -c "cafe-service migrate up && cafe-service run service"
 
 
-  db:
+  cafe-db:
     image: postgres
     restart: always
     ports:

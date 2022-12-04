@@ -3,7 +3,7 @@ log:
   level: "info"
 
 db:
-  url: "postgres://postgres:postgres@db/postgres?sslmode=disable"
+  url: "postgres://postgres:postgres@cafe-db/postgres?sslmode=disable"
 # Uncomment to use locally:
 #   url: "postgres://postgres:password@localhost:5432/Cafe?sslmode=disable"
 #   url: "postgres://postgres:postgres@localhost:5435/postgres?sslmode=disable"
@@ -23,7 +23,7 @@ endpoints:
 
 
 listener:
-  addr: :9105
+  addr: :9106
 
 cop:
   disabled: true
