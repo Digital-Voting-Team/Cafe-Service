@@ -8,7 +8,7 @@ services:
       # localhost:docker
       - "9106:9106"
     depends_on:
-      - db
+      - cafe-db
     environment:
       - KV_VIPER_FILE=/config.yaml
     volumes:
