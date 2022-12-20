@@ -26,7 +26,7 @@ func NewCreateCafeRequest(r *http.Request) (CreateCafeRequest, error) {
 
 func (r *CreateCafeRequest) validate() error {
 	return helpers.MergeErrors(validation.Errors{
-		"/data/attributes/name": validation.Validate(&r.Data.Attributes.CafeName, validation.Required,
+		"/data/attributes/cafe_name": validation.Validate(&r.Data.Attributes.CafeName, validation.Required,
 			validation.Length(3, 45)),
 		"/data/attributes/rating": validation.Validate(&r.Data.Attributes.Rating,
 			validation.Length(3, 30)),
