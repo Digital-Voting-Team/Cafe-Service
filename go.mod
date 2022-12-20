@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/Digital-Voting-Team/auth-service v1.2.4
-	github.com/Digital-Voting-Team/staff-service v1.0.9
+	github.com/Digital-Voting-Team/staff-service v1.1.0
 	github.com/Masterminds/squirrel v1.5.3
 	github.com/alecthomas/kingpin v2.2.6+incompatible
 	github.com/fatih/structs v1.1.0
