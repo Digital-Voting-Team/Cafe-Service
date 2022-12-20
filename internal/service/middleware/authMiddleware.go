@@ -15,6 +15,11 @@ import (
 func BasicAuth(endpointsConf *config.EndpointsConfig) func(next http.Handler) http.Handler {
 	return func(next http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			if r.Method == "OPTIONS" {
+				w.WriteHeader(200)
+				return
+			}
+
 			jwtResponse, err := authEndoints.ValidateToken(
 				r.Header.Get("Authorization"),
 				endpointsConf.Endpoints["auth-service"],
